@@ -41,6 +41,7 @@
 - [ ] **DSGN-03**: System-Fonts (font-family: system-ui, -apple-system, sans-serif)
 - [ ] **DSGN-04**: Mobile-first, responsive — funktioniert auf Smartphones (min. 320px Breite)
 - [ ] **DSGN-05**: Warm und simpel — kein Schnickschnack, keine Animationen
+- [ ] **DSGN-06**: `altipiano.png` als Base64 eingebettet, klein unten (Footer-Bereich), zentriert
 
 ### Deployment & Setup
 
@@ -86,6 +87,7 @@
 | DSGN-03 | Phase 1 — Teilnehmerformular | Pending |
 | DSGN-04 | Phase 1 — Teilnehmerformular | Pending |
 | DSGN-05 | Phase 1 — Teilnehmerformular | Pending |
+| DSGN-06 | Phase 1 — Teilnehmerformular | Pending |
 | ADMN-01 | Phase 2 — Admin & Deployment | Pending |
 | ADMN-02 | Phase 2 — Admin & Deployment | Pending |
 | ADMN-03 | Phase 2 — Admin & Deployment | Pending |
@@ -96,8 +98,8 @@
 | DEPL-03 | Phase 2 — Admin & Deployment | Pending |
 
 **Coverage:**
-- v1 requirements: 25 total
-- Mapped to phases: 25
+- v1 requirements: 26 total
+- Mapped to phases: 26
 - Unmapped: 0 ✓
 
 ---
