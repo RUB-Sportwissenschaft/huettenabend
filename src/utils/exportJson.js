@@ -1,6 +1,7 @@
 export function exportAsJson(result) {
   const payload = {
     title: 'RUB Skiausbildung \u2014 Einstufungsergebnis',
+    name: result.name,
     timestamp: result.timestamp,
     assignedLevel: result.level,
     totalScore: result.totalScore,
@@ -19,7 +20,8 @@ export function exportAsJson(result) {
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
-  link.download = `ski-einstufung-level-${result.level}.json`
+  const safeName = result.name ? result.name.replace(/\s+/g, '-') : 'anonym'
+  link.download = `ski-einstufung-${safeName}-level-${result.level}.json`
   link.click()
   URL.revokeObjectURL(url)
 }

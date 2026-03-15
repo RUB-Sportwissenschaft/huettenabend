@@ -9,6 +9,9 @@ export default function ResultScreen({ result, onReset }) {
   return (
     <div className="min-h-screen p-4 flex flex-col items-center justify-center">
       <div className="text-center mb-8">
+        {result.name && (
+          <p className="text-lg font-medium text-gray-700 mb-1">{result.name}</p>
+        )}
         <p className="text-sm text-gray-500 mb-2">Deine Einstufung</p>
         <div className="w-32 h-32 rounded-full bg-blue-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
           <span className="text-5xl font-bold text-white">{result.level}</span>

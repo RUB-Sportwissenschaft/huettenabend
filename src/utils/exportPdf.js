@@ -12,25 +12,32 @@ export function exportAsPdf(result) {
   doc.setFontSize(14)
   doc.text('Einstufungsergebnis', 20, 35)
 
+  // Name
+  if (result.name) {
+    doc.setFontSize(12)
+    doc.text(`Name: ${result.name}`, 20, 48)
+  }
+
   // Level
   doc.setFontSize(16)
-  doc.text(`Zugewiesene Gruppe: Level ${result.level} (${label})`, 20, 52)
+  doc.text(`Zugewiesene Gruppe: Level ${result.level} (${label})`, 20, result.name ? 60 : 52)
 
   // Meta
   doc.setFontSize(11)
-  doc.text(`Datum: ${date}`, 20, 62)
+  const metaY = result.name ? 70 : 62
+  doc.text(`Datum: ${date}`, 20, metaY)
   doc.text(
     `Punkte: ${result.totalScore} von ${result.maxScore}`,
     20,
-    70
+    metaY + 8
   )
 
   // Answers
   doc.setFontSize(12)
-  doc.text('Antworten:', 20, 85)
+  doc.text('Antworten:', 20, metaY + 23)
 
   doc.setFontSize(10)
-  let y = 95
+  let y = metaY + 33
 
   result.answers.forEach((a, i) => {
     if (y > 270) {
@@ -47,5 +54,6 @@ export function exportAsPdf(result) {
     y += 10
   })
 
-  doc.save(`ski-einstufung-level-${result.level}.pdf`)
+  const safeName = result.name ? result.name.replace(/\s+/g, '-') : 'anonym'
+  doc.save(`ski-einstufung-${safeName}-level-${result.level}.pdf`)
 }
