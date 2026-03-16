@@ -1,10 +1,13 @@
 import { jsPDF } from 'jspdf'
 import { LEVEL_LABELS } from '../data/questions'
+import { getDownloadFilename } from './exportHelpers'
 
 export function exportAsPdf(result) {
   const doc = new jsPDF()
   const label = LEVEL_LABELS[result.level] || `Level ${result.level}`
   const date = new Date(result.timestamp).toLocaleDateString('de-DE')
+  const hasName = Boolean(result.name)
+  const nameOffset = hasName ? 8 : 0
 
   // Title
   doc.setFontSize(20)
@@ -13,24 +16,20 @@ export function exportAsPdf(result) {
   doc.text('Einstufungsergebnis', 20, 35)
 
   // Name
-  if (result.name) {
+  if (hasName) {
     doc.setFontSize(12)
     doc.text(`Name: ${result.name}`, 20, 48)
   }
 
   // Level
   doc.setFontSize(16)
-  doc.text(`Zugewiesene Gruppe: Level ${result.level} (${label})`, 20, result.name ? 60 : 52)
+  doc.text(`Zugewiesene Gruppe: Level ${result.level} (${label})`, 20, 52 + nameOffset)
 
   // Meta
   doc.setFontSize(11)
-  const metaY = result.name ? 70 : 62
+  const metaY = 62 + nameOffset
   doc.text(`Datum: ${date}`, 20, metaY)
-  doc.text(
-    `Punkte: ${result.totalScore} von ${result.maxScore}`,
-    20,
-    metaY + 8
-  )
+  doc.text(`Punkte: ${result.totalScore} von ${result.maxScore}`, 20, metaY + 8)
 
   // Answers
   doc.setFontSize(12)
@@ -54,6 +53,5 @@ export function exportAsPdf(result) {
     y += 10
   })
 
-  const safeName = result.name ? result.name.replace(/\s+/g, '-') : 'anonym'
-  doc.save(`ski-einstufung-${safeName}-level-${result.level}.pdf`)
+  doc.save(`${getDownloadFilename(result.name, result.level)}.pdf`)
 }

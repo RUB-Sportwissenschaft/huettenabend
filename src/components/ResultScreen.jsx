@@ -3,6 +3,8 @@ import AnswerSummary from './AnswerSummary'
 import { exportAsJson } from '../utils/exportJson'
 import { exportAsPdf } from '../utils/exportPdf'
 
+const exportBtnCls = 'w-full py-3 px-4 rounded-xl border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm hover:border-blue-400 hover:bg-blue-50 active:scale-[0.98] transition-all'
+
 export default function ResultScreen({ result, onReset }) {
   const label = LEVEL_LABELS[result.level] || `Level ${result.level}`
 
@@ -23,16 +25,10 @@ export default function ResultScreen({ result, onReset }) {
       </div>
 
       <div className="w-full max-w-sm space-y-3 mb-8">
-        <button
-          onClick={() => exportAsJson(result)}
-          className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm hover:border-blue-400 hover:bg-blue-50 active:scale-[0.98] transition-all"
-        >
+        <button onClick={() => exportAsJson(result)} className={exportBtnCls}>
           Ergebnis als JSON herunterladen
         </button>
-        <button
-          onClick={() => exportAsPdf(result)}
-          className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm hover:border-blue-400 hover:bg-blue-50 active:scale-[0.98] transition-all"
-        >
+        <button onClick={() => exportAsPdf(result)} className={exportBtnCls}>
           Ergebnis als PDF herunterladen
         </button>
       </div>

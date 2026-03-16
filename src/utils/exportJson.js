@@ -1,3 +1,5 @@
+import { getDownloadFilename } from './exportHelpers'
+
 export function exportAsJson(result) {
   const payload = {
     title: 'RUB Skiausbildung \u2014 Einstufungsergebnis',
@@ -20,8 +22,7 @@ export function exportAsJson(result) {
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
-  const safeName = result.name ? result.name.replace(/\s+/g, '-') : 'anonym'
-  link.download = `ski-einstufung-${safeName}-level-${result.level}.json`
+  link.download = `${getDownloadFilename(result.name, result.level)}.json`
   link.click()
   URL.revokeObjectURL(url)
 }
