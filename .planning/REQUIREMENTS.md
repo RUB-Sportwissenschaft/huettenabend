@@ -28,9 +28,9 @@
 
 ### Admin-Ansicht
 
-- [ ] **ADMN-01**: Admin-Ansicht erreichbar unter ?admin=true (kein Passwort)
-- [ ] **ADMN-02**: Admin lädt alle Antworten aus JSONBin.io und zeigt Tabelle: Nachname | Vorname | Gruppe | Wahl | Zeitstempel
-- [ ] **ADMN-03**: Tabelle sortierbar nach Nachname (alphabetisch) und nach Gruppe
+- [x] **ADMN-01**: Admin-Ansicht erreichbar unter ?admin=true (kein Passwort)
+- [x] **ADMN-02**: Admin lädt alle Antworten aus JSONBin.io und zeigt Tabelle: Nachname | Vorname | Gruppe | Wahl | Zeitstempel
+- [x] **ADMN-03**: Tabelle sortierbar nach Nachname (alphabetisch) und nach Gruppe
 - [ ] **ADMN-04**: "PDF herunterladen"-Button lädt jsPDF + AutoTable via CDN und generiert PDF
 - [ ] **ADMN-05**: PDF enthält: Titel "Essensumfrage Valmorel", Datum, Teilnehmerliste als Tabelle (mit Gruppe), Auswertung (Anzahl pro Option, optional auch pro Gruppe)
 
@@ -88,9 +88,9 @@
 | DSGN-04 | Phase 1 — Teilnehmerformular | Complete |
 | DSGN-05 | Phase 1 — Teilnehmerformular | Complete |
 | DSGN-06 | Phase 1 — Teilnehmerformular | Complete |
-| ADMN-01 | Phase 2 — Admin & Deployment | Pending |
-| ADMN-02 | Phase 2 — Admin & Deployment | Pending |
-| ADMN-03 | Phase 2 — Admin & Deployment | Pending |
+| ADMN-01 | Phase 2 — Admin & Deployment | Complete |
+| ADMN-02 | Phase 2 — Admin & Deployment | Complete |
+| ADMN-03 | Phase 2 — Admin & Deployment | Complete |
 | ADMN-04 | Phase 2 — Admin & Deployment | Pending |
 | ADMN-05 | Phase 2 — Admin & Deployment | Pending |
 | DEPL-01 | Phase 2 — Admin & Deployment | Pending |

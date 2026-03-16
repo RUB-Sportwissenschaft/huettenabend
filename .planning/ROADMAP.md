@@ -56,4 +56,4 @@ Phases execute in numeric order: 1 → 2
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Teilnehmerformular | 2/2 | Complete   | 2026-03-15 |
-| 2. Admin & Deployment | 0/3 | Not started | - |
+| 2. Admin & Deployment | 1/3 | In Progress|  |

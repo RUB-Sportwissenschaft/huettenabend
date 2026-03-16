@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: complete
-stopped_at: "Plan 01-02 complete: JavaScript-Logik, Validierung, JSONBin.io API, Bestaetigungsscreen"
-last_updated: "2026-03-16T00:00:00Z"
+status: completed
+stopped_at: "02-01 checkpoint: Tasks 1-2 complete, awaiting human-verify"
+last_updated: "2026-03-16T06:14:33.383Z"
 last_activity: "2026-03-16 — Plan 01-02 complete: vollstaendige interaktive Single-HTML-App mit JS-Logik"
 progress:
   total_phases: 2
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 5
+  completed_plans: 3
   percent: 100
 ---
 
@@ -68,6 +68,8 @@ Recent decisions affecting current work:
 - [Phase 01-teilnehmerformular]: Emojis als Unicode-Escapes in HTML (Bash-Heredoc-Kompatibilitaet)
 - [Phase 01-teilnehmerformular]: Unicode-Escapes fuer deutsche Umlaute in JS-Strings (Windows/Git-Bash-Kompatibilitaet, gleiche Strategie wie Plan 01)
 - [Phase 01-teilnehmerformular]: JSONBIN_API_KEY und JSONBIN_BIN_ID als Konstanten oben im script-Block — fuer Phase-2-Admin-Zugriff gut sichtbar
+- [Phase 02-admin-deployment]: escHtml uses function declaration (not arrow) so it is hoisted and reusable in Plan 02-02
+- [Phase 02-admin-deployment]: window._adminRecords stores loaded records globally for cross-plan access (PDF plan 02-02)
 
 ### Pending Todos
 
@@ -79,6 +81,6 @@ None. Phase 1 vollstaendig abgeschlossen. Vor Phase 2: JSONBIN_API_KEY und JSONB
 
 ## Session Continuity
 
-Last session: 2026-03-16T00:00:00Z
-Stopped at: Plan 01-02 complete — Phase 1 abgeschlossen
+Last session: 2026-03-16T06:14:15.862Z
+Stopped at: 02-01 checkpoint: Tasks 1-2 complete, awaiting human-verify
 Resume file: None
