@@ -44,7 +44,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Admin-Ansicht: JSONBin-Datenladen, Tabelle (Nachname | Vorname | Gruppe | Wahl | Zeitstempel), Sortierung nach Nachname und Gruppe
+- [x] 02-01-PLAN.md — Admin-Ansicht: JSONBin-Datenladen, Tabelle (Nachname | Vorname | Gruppe | Wahl | Zeitstempel), Sortierung nach Nachname und Gruppe
 - [ ] 02-02-PLAN.md — PDF-Export: jsPDF + AutoTable via CDN, Teilnehmerliste und Auswertung (Anzahl pro Option)
 - [ ] 02-03-PLAN.md — Single-File-Finalisierung und README: Pruefung, Deployment-Anleitung, GitHub-Pages-URL
 
@@ -56,4 +56,4 @@ Phases execute in numeric order: 1 → 2
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Teilnehmerformular | 2/2 | Complete   | 2026-03-15 |
-| 2. Admin & Deployment | 1/3 | In Progress|  |
+| 2. Admin & Deployment | 2/3 | In Progress|  |
