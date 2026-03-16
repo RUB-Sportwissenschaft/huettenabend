@@ -41,12 +41,12 @@ Plans:
   2. Ein Klick auf "PDF herunterladen" generiert ein PDF mit Titel, Datum, Teilnehmerliste und Auswertung (Anzahl pro Option)
   3. Die gesamte App ist eine einzige HTML-Datei — kein separates CSS, JS oder Bild-File noetig
   4. Ein Entwickler kann anhand der README in unter 5 Minuten den JSONBin.io-Key eintragen, pushen und die GitHub-Pages-URL mit WhatsApp teilen
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Admin-Ansicht (ADMN-01–03): Datenladen, Tabelle, Sortierung
-- [ ] 02-02: PDF-Export (ADMN-04–05): jsPDF + AutoTable via CDN, Auswertung
-- [ ] 02-03: Single-File-Finalisierung und README (DEPL-01–03)
+- [ ] 02-01-PLAN.md — Admin-Ansicht: JSONBin-Datenladen, Tabelle (Nachname | Vorname | Gruppe | Wahl | Zeitstempel), Sortierung nach Nachname und Gruppe
+- [ ] 02-02-PLAN.md — PDF-Export: jsPDF + AutoTable via CDN, Teilnehmerliste und Auswertung (Anzahl pro Option)
+- [ ] 02-03-PLAN.md — Single-File-Finalisierung und README: Pruefung, Deployment-Anleitung, GitHub-Pages-URL
 
 ## Progress
 
