@@ -552,6 +552,14 @@
   <script>
     const JSONBIN_API_KEY = '$2a$10$zGXaVO.aENSHDxnvvMNtIOI8xABxjtblg/75LMqOWhX0nPd9JjRo2';
     const JSONBIN_BIN_ID = '69b74a15b7ec241ddc700fd7';
+    const WAHL_LABELS = {
+      'raclette-klassisch':    '\uD83E\uDDC0 Raclette klassisch',
+      'raclette-vegetarisch':  '\uD83E\uDD66 Raclette vegetarisch'
+    };
+    const WAHL_LABELS_PLAIN = {
+      'raclette-klassisch':    'Raclette klassisch',
+      'raclette-vegetarisch':  'Raclette vegetarisch'
+    };
 
     document.addEventListener('DOMContentLoaded', () => {
       if (sessionStorage.getItem('valmorel_voted')) {
@@ -565,10 +573,10 @@
       initSubmit();
     });
 
-    function initKacheln() {
-      document.querySelectorAll('.card').forEach(card => {
+    function initRadioCards(selector) {
+      document.querySelectorAll(selector).forEach(card => {
         card.addEventListener('click', () => {
-          document.querySelectorAll('.card').forEach(c => {
+          document.querySelectorAll(selector).forEach(c => {
             c.classList.remove('selected');
             c.setAttribute('aria-checked', 'false');
           });
@@ -581,22 +589,11 @@
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
         });
       });
+    }
 
-      document.querySelectorAll('.option-card').forEach(card => {
-        card.addEventListener('click', () => {
-          document.querySelectorAll('.option-card').forEach(c => {
-            c.classList.remove('selected');
-            c.setAttribute('aria-checked', 'false');
-          });
-          card.classList.add('selected');
-          card.setAttribute('aria-checked', 'true');
-          card.querySelector('input[type="radio"]').checked = true;
-          validateForm();
-        });
-        card.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
-        });
-      });
+    function initKacheln() {
+      initRadioCards('.card');
+      initRadioCards('.option-card');
     }
 
     function initValidierung() {
@@ -708,11 +705,6 @@
     }
 
     function showConfirmation(antwort) {
-      const wahlLabels = {
-        'raclette-klassisch':    '\uD83E\uDDC0 Raclette klassisch',
-        'raclette-vegetarisch':  '\uD83E\uDD66 Raclette vegetarisch'
-      };
-
       document.getElementById('umfrage-form').style.display = 'none';
       const conf = document.getElementById('confirmation');
       conf.style.display = 'block';
@@ -720,7 +712,7 @@
         `Danke, ${antwort.vorname}!`;
       document.getElementById('confirmation-choice').innerHTML =
         `<p><strong>Gruppe</strong> ${antwort.gruppe}</p>
-         <p><strong>Essenswahl</strong> ${wahlLabels[antwort.wahl] || antwort.wahl}</p>`;
+         <p><strong>Essenswahl</strong> ${WAHL_LABELS[antwort.wahl] || antwort.wahl}</p>`;
     }
 
   // === H: Admin-Ansicht ===
@@ -766,11 +758,6 @@
 
   function renderAdminTable(sortField, sortDir) {
     const records = (window._adminRecords || []).slice();
-    const wahlDisplay = {
-      'raclette-klassisch':  '\uD83E\uDDC0 Raclette klassisch',
-      'raclette-vegetarisch': '\uD83E\uDD66 Raclette vegetarisch'
-    };
-
     records.sort(function(a, b) {
       let va = a[sortField] || '';
       let vb = b[sortField] || '';
@@ -802,7 +789,7 @@
         '<td>' + escHtml(r.nachname  || '') + '</td>' +
         '<td>' + escHtml(r.vorname   || '') + '</td>' +
         '<td>' + escHtml(String(r.gruppe || '')) + '</td>' +
-        '<td>' + escHtml(wahlDisplay[r.wahl] || r.wahl || '') + '</td>' +
+        '<td>' + escHtml(WAHL_LABELS[r.wahl] || r.wahl || '') + '</td>' +
         '<td>' + escHtml(ts) + '</td>' +
         '<td><button class="btn-delete" data-ts="' + escHtml(r.timestamp || '') + '">L\u00f6schen</button></td>' +
         '</tr>';
@@ -907,10 +894,6 @@ function escHtml(str) {
       doc.text('Datum: ' + today + '  |  Teilnehmer: ' + records.length, 14, 28);
 
       // Teilnehmerliste
-      const wahlDisplay = {
-        'raclette-klassisch': 'Raclette klassisch',
-        'raclette-vegetarisch': 'Raclette vegetarisch'
-      };
       const tableBody = records.map(function(r) {
         const ts = r.timestamp
           ? new Date(r.timestamp).toLocaleString('de-DE')
@@ -919,7 +902,7 @@ function escHtml(str) {
           r.nachname  || '',
           r.vorname   || '',
           String(r.gruppe || ''),
-          wahlDisplay[r.wahl] || r.wahl || '',
+          WAHL_LABELS_PLAIN[r.wahl] || r.wahl || '',
           ts
         ];
       });

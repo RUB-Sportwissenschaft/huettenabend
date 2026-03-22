@@ -57,6 +57,7 @@ pruefung/
 - Studienleistung und (Modul)Prüfung schließen sich gegenseitig aus
 - Lizenzen ist mit beiden kombinierbar
 - (Modul)Prüfung-Label passt sich dynamisch an Uni-Auswahl an (RUB: M4 Praxis, TU: Natursport)
+**Admin-Export:** Excel (.xlsx) via SheetJS — Anmeldungen + Zusammenfassung
 
 ---
 
